@@ -23,18 +23,24 @@ std::vector<Book> Books::findBookByTitle(const std::string& title) const
 
 std::vector<Book> findBookByAuthor(const std::string& author) const {
 	std::vector<Book> foundBooks;
-	for (auto& book : books) {
-		if (book.getAuthor() == author) {
+	std::string lowerAuthor = toLower(author);
+	for (const auto& book : books) {
+		std::string lowerBookAuthor = toLower(book.getAuthor());
+		if (lowerBookAuthor == lowerAuthor) {
 			foundBooks.push_back(book);
 		}
 	}
+
 	return foundBooks;
 }
 
 std::vector<Book> findBookByInfo(const std::string& info) const {
 	std::vector<Book> foundBooks;
-	for (auto& book : books) {
-		if (book.getInfo().find(info) != std::string::npos) {
+	std::string lowerInfo = toLower(info);
+
+	for (const auto& book : books) {
+		std::string lowerBookInfo = toLower(book.getInfo());
+		if (lowerBookInfo.find(lowerInfo) != std::string::npos) {
 			foundBooks.push_back(book);
 		}
 	}
