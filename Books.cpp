@@ -22,6 +22,7 @@ std::vector<Book> Books::findBookByTitle(const std::string& title) const
 	}
 	return foundBooks;
 }
+
 bool Books::changeBookByID(int id, const std::string& title, const std::string& author, const std::string& info, bool isAvailable)
 {
 	for (Book book : books) {
@@ -33,7 +34,6 @@ bool Books::changeBookByID(int id, const std::string& title, const std::string& 
 			return true;
 		}
 	}
-
 	return false;
 }
 
