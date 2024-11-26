@@ -13,16 +13,15 @@ public:
     int getAge() const;
     int getReaderID() const;
 
-    void setName(const std::string& name);
-    void setAddress(const std::string& name);
-    void setPhoneNumber(const std::string& phoneNumber);
-    void setAge(const int age);
+    void setName(std::string& name);
+    void setAddress(std::string& address);
+    void setPhoneNumber(std::string& phoneNumber);
+    void setAge(int age);
 private:
     std::string name;
-    std::string address;
     std::string phoneNumber;
+    std::string address;
     unsigned int age;
     const int readerID;
     static int count;
-
 };
