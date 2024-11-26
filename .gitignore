@@ -43,3 +43,9 @@ x86/Release/
 *.msi
 *.msm
 *.msp
+
+# Visual Studio
+.vs/
+.vscode/
+.idea/
+
