@@ -22,12 +22,9 @@ std::vector<Book> Books::findBookByTitle(const std::string& title) const
 	}
 	return foundBooks;
 }
-bool Books::changeBookByID(int id, const std::string& title,
-	const std::string& author,
-	const std::string& info,
-	bool isAvailable)
+bool Books::changeBookByID(int id, const std::string& title, const std::string& author, const std::string& info, bool isAvailable)
 {
-	for (auto book : books) {
+	for (Book book : books) {
 		if (book.getID() == id) {
 			book.setTitle(title);
 			book.setAuthor(author);
@@ -39,12 +36,12 @@ bool Books::changeBookByID(int id, const std::string& title,
 
 	return false;
 }
+
 std::optional<Book> Books::findBookByID(int id) const {
-	for (auto book : books) {
+	for (Book book : books) {
 		if (book.getID() == id) {
 			return book;
 		}
 	}
-
 	return std::nullopt;
 }
