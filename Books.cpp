@@ -1,25 +1,29 @@
 #include "Books.h"
+#include <vector>
+#include <iostream>
 
-#include <algorithm>
 
-// Helper function to convert a string to lowercase
-std::string toLower(const std::string& str) {
-	std::string lowerStr = str;
-	std::transform(lowerStr.begin(), lowerStr.end(), lowerStr.begin(), ::tolower);
-	return lowerStr;
+void Books::addBook(Book& book) {
+	books.push_back(book);
 }
 
-std::vector<Book> Books::findBookByTitle(const std::string& title) const 
-{
-	std::vector<Book> foundBooks;
-	std::string lowercaseTitle = toLower(title);
-
-	for (auto book : books) {
-		std::string lowercaseBookTitle = toLower(book->getTitle());
-		if (bookTitle.find(lowerTitle) != std::string::npos) {
-			foundBooks.push_back(book);
+bool Books::deleteBookById(int id) {
+	int index = 0;
+	bool found = false;
+	for (Book& book : books) {
+		if (book.GetId() == id) {
+			std::cout << "This book has been found " << std::endl;
+			found = true;
 		}
+		++index;
 	}
-	return foundBooks;
-}
+	if (found = true) {
+		books.erase(books.begin() + index);
+		return true;
+	}
+	else {
+		std::cout << "This book has not been found " << std::endl;
+		return false;
+	}
 
+}
